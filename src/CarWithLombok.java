@@ -3,17 +3,22 @@ import lombok.*;
 
 @Getter
 @Setter
-@EqualsAndHashCode
+@EqualsAndHashCode(of = {"brand"})
 @ToString
-@AllArgsConstructor
+@RequiredArgsConstructor
 public class CarWithLombok {
-
+    @NonNull
     private String model;
+    @NonNull
     private String brand;
+    @NonNull
     private int year;
+    @NonNull
     private int price;
+    @NonNull
     private String color;
-    private int quantity;
+    @NonNull
+   @ToString.Exclude private int quantity;
 
     public void delivery(int amount){
         this.quantity += amount;
@@ -22,3 +27,4 @@ public class CarWithLombok {
         this.quantity -= sold;
     }
 }
+
